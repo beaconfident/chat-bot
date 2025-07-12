@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat with GPT</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: auto; padding: 20px; }
+        #messages { border: 1px solid #ccc; padding: 10px; height: 400px; overflow-y: auto; background: #f9f9f9; margin-bottom: 10px; }
+        .message { margin: 5px 0; }
+        .user { color: blue; font-weight: bold; }
+        .bot { color: green; font-weight: bold; }
+        input[type="text"] { width: 70%; padding: 10px; }
+        button { padding: 10px 15px; margin-left: 5px; }
+    </style>
+</head>
+<body>
+    <h2>Chat with GPT</h2>
+    <div id="messages"></div>
+    <input type="text" id="userInput" placeholder="Ask something..." />
+    <button onclick="sendMessage()">Send</button>
+    <button onclick="resetChat()">Reset Chat</button>
+    <button onclick="viewHistory()">View History</button>
+    <button onclick="deleteHistory()">Delete History</button>
+
+    <script>
+        async function sendMessage() {
+            const input = document.getElementById("userInput");
+            const userMessage = input.value.trim();
+            if (!userMessage) return;
+
+            appendMessage("You", userMessage, "user");
+            input.value = "";
+
+            const res = await fetch("/api", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ message: userMessage })
+            });
+
+            const data = await res.json();
+            appendMessage("GPT", data.reply, "bot");
+        }
+
+        function appendMessage(sender, message, className) {
+            const msgBox = document.getElementById("messages");
+            const div = document.createElement("div");
+            div.classList.add("message", className);
+            div.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            msgBox.appendChild(div);
+            msgBox.scrollTop = msgBox.scrollHeight;
+        }
+
+        function resetChat() {
+            fetch("/reset", { method: "POST" }).then(() => {
+                document.getElementById("messages").innerHTML = "";
+            });
+        }
+
+        async function viewHistory() {
+            const res = await fetch("/history");
+            const data = await res.json();
+            document.getElementById("messages").innerHTML = "";
+            data.history.forEach(item => {
+                appendMessage("You", item.user, "user");
+                appendMessage("GPT", item.bot, "bot");
+            });
+        }
+
+        async function deleteHistory() {
+            await fetch("/history", { method: "DELETE" });
+            document.getElementById("messages").innerHTML = "";
+        }
+    </script>
+</body>
+</html>

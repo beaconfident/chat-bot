@@ -1,0 +1,85 @@
+/* Base layout */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f0f2f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header */
+header {
+  background-color: #4A90E2;
+  width: 100%;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Chat container */
+#chat-box {
+  width: 90%;
+  max-width: 600px;
+  height: 60vh;
+  margin-top: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 10px;
+  overflow-y: auto;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+/* Chat input area */
+.input-section {
+  width: 90%;
+  max-width: 600px;
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+  padding: 0 5px;
+}
+
+/* Input field */
+#user-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #4A90E2;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #357ABD;
+}
+
+/* Message display */
+.message {
+  margin: 8px 0;
+  line-height: 1.5;
+}
+
+.user {
+  color: #333;
+}
+
+.bot {
+  color: #007BFF;
+}
