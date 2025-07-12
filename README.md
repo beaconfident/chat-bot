@@ -1,4 +1,4 @@
-# 💬 AI Chatbot Assistant
+#  AI Chatbot Assistant
 
 A fully responsive, full-stack AI chatbot web app built with **Flask**, **Cohere API**, and **MongoDB**. The chatbot supports real-time conversation, stores chat history per session, and includes a clean, mobile-friendly UI.
 
@@ -6,16 +6,16 @@ A fully responsive, full-stack AI chatbot web app built with **Flask**, **Cohere
 
 ## 📌 Features
 
-- 🔥 AI-powered responses using [Cohere’s Language Models](https://cohere.com/)
-- 🧠 Memory-aware conversations (uses last 10 messages as context)
-- 💾 Persistent chat history stored in MongoDB
-- 🧹 Reset chat per session or delete all conversations
-- 💻 Clean, mobile-responsive UI with clear role-based message formatting
-- 🛠️ Built using Python (Flask), Vanilla JS, HTML, CSS, and MongoDB
+-  AI-powered responses using [Cohere’s Language Models](https://cohere.com/)
+-  Memory-aware conversations (uses last 10 messages as context)
+-  Persistent chat history stored in MongoDB
+-  Reset chat per session or delete all conversations
+-  Clean, mobile-responsive UI with clear role-based message formatting
+- 🛠 Built using Python (Flask), Vanilla JS, HTML, CSS, and MongoDB
 
 ---
 
-## 🖥️ Technologies Used
+## 🖥 Technologies Used
 
 | Tech           | Purpose                             |
 |----------------|-------------------------------------|
@@ -27,15 +27,15 @@ A fully responsive, full-stack AI chatbot web app built with **Flask**, **Cohere
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
-### ✅ Prerequisites
+###  Prerequisites
 
 - Python 3.7+
 - MongoDB installed and running locally (`mongodb://localhost:27017`)
 - Cohere API key ([Get yours here](https://dashboard.cohere.com/api-keys))
 
-### 📦 Installation
+###  Installation
 
 1. **Clone the Repository**
 ```bash
@@ -68,7 +68,7 @@ Copy code
 python app.py
 Open your browser at http://127.0.0.1:5000
 
-🌐 API Endpoints
+ API Endpoints
 Method	Route	Description
 GET	/	Load the chat interface
 POST	/api	Send a message to the chatbot
@@ -76,7 +76,7 @@ POST	/reset	Clear current session chat history
 GET	/history	Retrieve history for a session
 DELETE	/history	Delete all chat history (admin use)
 
-📱 UI & Responsive Design
+ UI & Responsive Design
 Responsive layout optimized for mobile, tablet, and desktop views.
 
 Flexbox and percentage-based widths ensure smooth resizing.
@@ -87,7 +87,7 @@ Buttons and input fields are spaced for touch-friendliness.
 
 Color-coded messages for clear distinction between User and Assistant.
 
-📂 Project Structure
+ Project Structure
 csharp
 Copy code
 chatbot-assistant/
@@ -97,7 +97,7 @@ chatbot-assistant/
 ├── static/              # For external CSS/JS (if extended)
 ├── requirements.txt     # Python dependencies
 └── README.md            # Project documentation
-✅ Future Improvements
+ Future Improvements
 Add login system to track users
 
 Switch to a production server (e.g., Gunicorn + Nginx)
@@ -107,8 +107,7 @@ Support for exporting or emailing chat history
 UI enhancements with animations and dark mode
 
 Model switching between Cohere variants (command-r, etc.)
-
-🧠 Cohere Config (in app.py)
+ Cohere Config (in app.py)
 python
 Copy code
 response = co.chat(
@@ -118,6 +117,6 @@ response = co.chat(
     temperature=0.7,
     max_tokens=512
 )
-📃 License
+ License
 This project is open-source and available under the MIT License.
 
